@@ -1,7 +1,7 @@
 {
-  "name": "vue-api-query",
-  "version": "0.0.0-development",
-  "description": "💎 Elegant and simple way to build requests for REST API",
+  "name": "vue-db-query",
+  "version": "1.0.0",
+  "description": "Elegant and simple way to build requests for REST API",
   "main": "build/index.js",
   "scripts": {
     "build": "babel src -d build",
@@ -28,15 +28,8 @@
   ],
   "author": "Robson Tenório",
   "contributors": [
-    {
-      "name": "João Pedro Antunes Silva",
-      "email": "joao-pedroas@hotmail.com",
-      "url": "https://github.com/JoaoPedroAS51"
-    },
-    {
-      "name": "Peter Krebs",
-      "url": "https://github.com/Peter-Krebs"
-    }
+    "João Pedro Antunes Silva <joao-pedroas@hotmail.com> (https://github.com/JoaoPedroAS51)",
+    "Peter Krebs (https://github.com/Peter-Krebs)"
   ],
   "license": "MIT",
   "bugs": {
@@ -65,5 +58,9 @@
     "dset": "^2.0.1",
     "object-to-formdata": "^4.1.0",
     "qs": "^6.9.4"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
   }
 }
