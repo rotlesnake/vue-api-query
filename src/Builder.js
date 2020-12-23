@@ -134,6 +134,7 @@ export default class Builder {
   }
 
   orderBy(...fields) {
+    //this.sorts[this.model.resource()] = fields.join(',');
     fields = Array.isArray(fields[0]) ? fields[0] : fields
     this.sorts = fields
 

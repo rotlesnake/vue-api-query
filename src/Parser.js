@@ -116,7 +116,9 @@ export default class Parser {
     if (!this.hasSorts()) {
       return
     }
-
+    
+    //let sorts = { [this.parameterNames().sort]: this.builder.sorts }
+    //this.uri += this.prepend() + qs.stringify(sorts, { encode: false })
     this.uri += this.prepend() + this.parameterNames().sort + '=' + this.builder.sorts
   }
 

@@ -219,8 +219,8 @@ export default class Model extends StaticModel {
     return this
   }
 
-  orderBy(...args) {
-    this._builder.orderBy(...args)
+  orderBy(...fields) {
+    this._builder.orderBy(...fields)
 
     return this
   }
@@ -335,6 +335,8 @@ export default class Model extends StaticModel {
   }
 
   first() {
+    this._builder.params({first:true});
+
     return this.get().then(response => {
       let item
 
