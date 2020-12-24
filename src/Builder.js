@@ -18,6 +18,7 @@ export default class Builder {
 
     this.fields = {}
     this.filters = {}
+    this.filter_oper = {}
 
     this.parser = new Parser(this)
   }
@@ -97,7 +98,14 @@ export default class Builder {
     return this
   }
 
-  where(key, value) {
+  where(key, oper, value) {
+    let operation = null;
+    if (value===null) {
+      value = oper;
+    } else {
+      operation = oper;
+    }
+
     if (key === undefined || value === undefined) {
       throw new Error('The KEY and VALUE are required on where() method.')
     }
@@ -111,7 +119,8 @@ export default class Builder {
 
       this.filters[_key] = { ...this.filters[_key], ..._value }
     } else {
-      this.filters[key] = value
+      this.filters[key] = value;
+      if (operation) this.filter_oper[key] = operation;
     }
 
     return this

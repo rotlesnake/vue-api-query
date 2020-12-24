@@ -1,6 +1,6 @@
 {
   "name": "vue-db-query",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Elegant and simple way to build requests for REST API",
   "main": "build/index.js",
   "scripts": {

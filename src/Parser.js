@@ -107,9 +107,11 @@ export default class Parser {
     if (!this.hasFilters()) {
       return
     }
-
+ 
     let filters = { [this.parameterNames().filter]: this.builder.filters }
-    this.uri += this.prepend() + qs.stringify(filters, { encode: false })
+    let filter_oper = { ["filter_oper"]: this.builder.filter_oper }
+    this.uri += this.prepend() + qs.stringify(filters, { encode: false }); 
+    this.uri += this.prepend() + qs.stringify(filter_oper, { encode: false }); 
   }
 
   sorts() {

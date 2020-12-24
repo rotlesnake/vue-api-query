@@ -39,9 +39,9 @@ export default class StaticModel {
     return self
   }
 
-  static where(field, value) {
+  static where(field, oper, value) {
     let self = this.instance()
-    self.where(field, value)
+    self.where(field, oper, value || null)
 
     return self
   }
@@ -86,6 +86,12 @@ export default class StaticModel {
     self.params(payload)
 
     return self
+  }
+
+  static new() {
+    let self = this.instance()
+
+    return self.new()
   }
 
   static first() {
@@ -135,4 +141,11 @@ export default class StaticModel {
 
     return self.$all()
   }
+
+  static modelInfo() {
+    let self = this.instance()
+
+    return self.modelInfo()
+  }
+
 }

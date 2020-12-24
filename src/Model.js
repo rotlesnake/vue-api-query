@@ -207,9 +207,9 @@ export default class Model extends StaticModel {
     return this
   }
 
-  where(field, value) {
-    this._builder.where(field, value)
-
+  where(field, oper, value) {
+    this._builder.where(field, oper, value || null)
+    
     return this
   }
 
@@ -334,6 +334,11 @@ export default class Model extends StaticModel {
     return _config
   }
 
+
+  new() {
+    return this._applyInstance([]);
+  }
+
   first() {
     this._builder.params({first:true});
 
@@ -418,6 +423,22 @@ export default class Model extends StaticModel {
 
   $all() {
     return this.$get()
+  }
+
+
+  modelInfo() {
+    let base = this._fromResource || `${this.baseURL()}/${this.resource()}`
+    base = this._customResource ? `${this.baseURL()}/${this._customResource}` : base
+    let url = `${base}/modelInfo()`
+
+    return this.request(
+      this._reqConfig({
+        url,
+        method: 'GET'
+      })
+    ).then(response => {
+      return response.data
+    })
   }
 
   /**
