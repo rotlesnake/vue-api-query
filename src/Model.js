@@ -138,7 +138,7 @@ export default class Model {
 
     first() {
       this.params({first:true});
-      return this.get();
+      return this.get(true);
     }
     
 
@@ -158,7 +158,7 @@ export default class Model {
     }
 
 
-    get() {
+    get(asInstance, row) {
       let base = `${this.$config.baseURL}/${this.$config.tablename}`;
       let url = `${base}${this._query()}`;
       
@@ -166,7 +166,9 @@ export default class Model {
           url:url,
           method: 'GET'
         }).then(response => {
-           return this._setInstance(response.data)
+           if (asInstance) this._setInstance(response.data);
+           if (row) response.data[row];
+           return response.data;
        });
     }
 
